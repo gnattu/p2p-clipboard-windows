@@ -276,7 +276,7 @@ namespace p2pClipboard_Windows
                 return;
             }
 
-            Task.Delay(TimeSpan.FromSeconds(15)).ContinueWith(
+            Task.Delay(TimeSpan.FromSeconds(5)).ContinueWith(
                 (t) =>
                 {
                     using var running = Process.GetProcessesByName("p2p-clipboard").FirstOrDefault();
