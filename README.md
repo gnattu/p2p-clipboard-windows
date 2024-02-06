@@ -29,6 +29,7 @@ git clone https://github.com/gnattu/p2p-clipboard-windows.git
 ## Caveats
 
 - The autostart entry records the current path of the exe when it is running. If you move the exe, you need to re-enable the autostart to update the recorded path.
+- If something bad happens and you need to kill the app, please make sure you kill both the wrapper and the core process in Task Manager. There will be one with an icon named `p2pClipboard Settings` and one named `p2p-clipboard.exe` without an icon. Both need to be killed.
 
 ## Cleanup
 
