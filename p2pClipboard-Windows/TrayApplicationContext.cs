@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Reflection;
+using Windows.Security.Credentials;
 
 namespace p2pClipboard_Windows
 {
@@ -16,12 +17,14 @@ namespace p2pClipboard_Windows
         public bool setListen = false;
         public bool setPrivateKey = false;
         public bool disableMdns = false;
+        public bool setPsk = false;
         public string connectIp = "";
         public string connectPort = "";
         public string connectPeerId = "";
         public string listenIp = "";
         public string listenPort = "";
         public string privateKeyPath = "";
+        public string psk = "";
         private bool _disposed = false;
         private readonly string _programPath;
         private readonly string _executablePath;
@@ -102,7 +105,7 @@ namespace p2pClipboard_Windows
             // check if p2p-clipboard is already running, if not, start it
             if (Process.GetProcessesByName("p2p-clipboard").Length == 0)
             {
-                //Start(null, null);
+                Start(null, null);
             }
 
             return true;
@@ -146,6 +149,7 @@ namespace p2pClipboard_Windows
             useConnect = (int?)registryKey?.GetValue("UseConnect") > 0;
             setListen = (int?)registryKey?.GetValue("SetListen") > 0;
             setPrivateKey = (int?)registryKey?.GetValue("SetPrivateKey") > 0;
+            setPsk = (int?)registryKey?.GetValue("SetPsk") > 0;
             disableMdns = (int?)registryKey?.GetValue("DisableMdns") > 0;
             connectIp = registryKey?.GetValue("ConnectIP")?.ToString() ?? "";
             connectPort = registryKey?.GetValue("ConnectPort")?.ToString() ?? "";
@@ -153,6 +157,18 @@ namespace p2pClipboard_Windows
             listenIp = registryKey?.GetValue("ListenIP")?.ToString() ?? "";
             listenPort = registryKey?.GetValue("ListenPort")?.ToString() ?? "";
             privateKeyPath = registryKey?.GetValue("PrivateKeyPath")?.ToString() ?? "";
+            
+            try
+            {
+                var vault = new PasswordVault();
+                var cred = vault.Retrieve("net.gnattu.p2pClipboard", "PSK");
+                cred.RetrievePassword();
+                psk = cred.Password;
+            }
+            catch
+            {
+                psk = "";
+            }
         }
 
         private void SetP2pClipboardConfig() 
@@ -161,6 +177,7 @@ namespace p2pClipboard_Windows
             registryKey?.SetValue("UseConnect", Convert.ToByte(useConnect), RegistryValueKind.DWord);
             registryKey?.SetValue("SetListen", Convert.ToByte(setListen), RegistryValueKind.DWord);
             registryKey?.SetValue("SetPrivateKey", Convert.ToByte(setPrivateKey), RegistryValueKind.DWord);
+            registryKey?.SetValue("SetPsk", Convert.ToByte(setPsk), RegistryValueKind.DWord);
             registryKey?.SetValue("DisableMdns", Convert.ToByte(disableMdns), RegistryValueKind.DWord);
             registryKey?.SetValue("ConnectIP", connectIp);
             registryKey?.SetValue("ConnectPort", connectPort);
@@ -168,6 +185,10 @@ namespace p2pClipboard_Windows
             registryKey?.SetValue("ListenIP", listenIp);
             registryKey?.SetValue("ListenPort", listenPort);
             registryKey?.SetValue("PrivateKeyPath", privateKeyPath);
+            
+            var vault = new PasswordVault();
+            var cred = new PasswordCredential("net.gnattu.p2pClipboard", "PSK", psk);
+            vault.Add(cred);
         }
 
 
@@ -214,6 +235,9 @@ namespace p2pClipboard_Windows
                 }
                 if (setPrivateKey) { 
                     args.Add($"-k {privateKeyPath}");
+                }
+                if (setPsk) {
+                    args.Add($"-p {psk}");
                 }
                 if (disableMdns) {
                     args.Add("--no-mdns");

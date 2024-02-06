@@ -13,6 +13,7 @@ namespace p2pClipboard_Windows
             listenIpTextBox.Text = _applicationContext.listenIp;
             listenPortTextBox.Text = _applicationContext.listenPort;
             privateKeyPathTextBox.Text = _applicationContext.privateKeyPath;
+            pskTextBox.Text = _applicationContext.psk;
             useConnectCheckBox.Checked
                 = connectIpTextBox.Enabled
                 = connectPortTextBox.Enabled
@@ -28,6 +29,9 @@ namespace p2pClipboard_Windows
                 = _applicationContext.setPrivateKey;
             disableMdnsCheckBox.Checked
                 = _applicationContext.disableMdns;
+            setPskCheckBox.Checked
+                = pskTextBox.Enabled
+                = _applicationContext.setPsk;
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
@@ -126,6 +130,23 @@ namespace p2pClipboard_Windows
         private void disableMdnslabel_Click(object sender, EventArgs e)
         {
             disableMdnsCheckBox.Checked = !disableMdnsCheckBox.Checked;
+        }
+
+        private void pskTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _applicationContext.psk = pskTextBox.Text;
+        }
+
+        private void setPskLabel_Click(object sender, EventArgs e)
+        {
+            setPskCheckBox.Checked = !setPskCheckBox.Checked;
+        }
+
+        private void setPskCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            _applicationContext.setPsk 
+                = pskTextBox.Enabled
+                = setPskCheckBox.Checked;
         }
     }
 }

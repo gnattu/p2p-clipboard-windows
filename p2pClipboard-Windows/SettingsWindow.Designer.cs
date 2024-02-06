@@ -45,14 +45,18 @@
             useConnectLabel = new Label();
             setListenLabel = new Label();
             setPrivatekeyLabel = new Label();
-            disableMdnslabel = new Label();
-            disableMdnsCheckBox = new CheckBox();
-            applyAndRestartButton = new Button();
             label9 = new Label();
             connectPortTextBox = new TextBox();
             listenPortTextBox = new TextBox();
             label10 = new Label();
             browsePrivateKeyButton = new Button();
+            applyAndRestartButton = new Button();
+            disableMdnslabel = new Label();
+            disableMdnsCheckBox = new CheckBox();
+            setPskCheckBox = new CheckBox();
+            pskTextBox = new TextBox();
+            setPskLabel = new Label();
+            label6 = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -64,7 +68,7 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.66667F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.6666641F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
@@ -82,27 +86,33 @@
             tableLayoutPanel1.Controls.Add(useConnectLabel, 1, 0);
             tableLayoutPanel1.Controls.Add(setListenLabel, 1, 3);
             tableLayoutPanel1.Controls.Add(setPrivatekeyLabel, 1, 5);
-            tableLayoutPanel1.Controls.Add(disableMdnslabel, 1, 7);
-            tableLayoutPanel1.Controls.Add(disableMdnsCheckBox, 0, 7);
-            tableLayoutPanel1.Controls.Add(applyAndRestartButton, 1, 8);
             tableLayoutPanel1.Controls.Add(label9, 2, 1);
             tableLayoutPanel1.Controls.Add(connectPortTextBox, 3, 1);
             tableLayoutPanel1.Controls.Add(listenPortTextBox, 3, 4);
             tableLayoutPanel1.Controls.Add(label10, 2, 4);
             tableLayoutPanel1.Controls.Add(browsePrivateKeyButton, 3, 6);
+            tableLayoutPanel1.Controls.Add(applyAndRestartButton, 1, 10);
+            tableLayoutPanel1.Controls.Add(disableMdnslabel, 1, 9);
+            tableLayoutPanel1.Controls.Add(disableMdnsCheckBox, 0, 9);
+            tableLayoutPanel1.Controls.Add(setPskCheckBox, 0, 7);
+            tableLayoutPanel1.Controls.Add(pskTextBox, 1, 8);
+            tableLayoutPanel1.Controls.Add(setPskLabel, 1, 7);
+            tableLayoutPanel1.Controls.Add(label6, 0, 8);
             tableLayoutPanel1.Location = new Point(12, 12);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 9;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.Size = new Size(776, 426);
+            tableLayoutPanel1.RowCount = 11;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.Size = new Size(776, 550);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // useConnectCheckBox
@@ -110,7 +120,7 @@
             useConnectCheckBox.Anchor = AnchorStyles.Right;
             useConnectCheckBox.AutoSize = true;
             useConnectCheckBox.ImageAlign = ContentAlignment.MiddleRight;
-            useConnectCheckBox.Location = new Point(94, 10);
+            useConnectCheckBox.Location = new Point(94, 11);
             useConnectCheckBox.Name = "useConnectCheckBox";
             useConnectCheckBox.Size = new Size(28, 27);
             useConnectCheckBox.TabIndex = 0;
@@ -121,7 +131,8 @@
             // 
             label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(16, 55);
+            label1.Location = new Point(16, 61);
+            label1.Margin = new Padding(3, 3, 3, 0);
             label1.Name = "label1";
             label1.Size = new Size(106, 31);
             label1.TabIndex = 1;
@@ -131,7 +142,8 @@
             // connectIpTextBox
             // 
             connectIpTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            connectIpTextBox.Location = new Point(128, 53);
+            connectIpTextBox.Location = new Point(128, 59);
+            connectIpTextBox.Margin = new Padding(3, 0, 3, 3);
             connectIpTextBox.Name = "connectIpTextBox";
             connectIpTextBox.PlaceholderText = "IP";
             connectIpTextBox.Size = new Size(494, 38);
@@ -142,7 +154,8 @@
             // 
             label2.Anchor = AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(31, 102);
+            label2.Location = new Point(31, 111);
+            label2.Margin = new Padding(3, 3, 3, 0);
             label2.Name = "label2";
             label2.Size = new Size(91, 31);
             label2.TabIndex = 3;
@@ -153,7 +166,8 @@
             // 
             connectPeerIdTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.SetColumnSpan(connectPeerIdTextBox, 3);
-            connectPeerIdTextBox.Location = new Point(128, 100);
+            connectPeerIdTextBox.Location = new Point(128, 109);
+            connectPeerIdTextBox.Margin = new Padding(3, 0, 3, 3);
             connectPeerIdTextBox.Name = "connectPeerIdTextBox";
             connectPeerIdTextBox.PlaceholderText = "12D3KooWxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
             connectPeerIdTextBox.Size = new Size(645, 38);
@@ -165,7 +179,7 @@
             setListenCheckBox.Anchor = AnchorStyles.Right;
             setListenCheckBox.AutoSize = true;
             setListenCheckBox.ImageAlign = ContentAlignment.MiddleRight;
-            setListenCheckBox.Location = new Point(94, 151);
+            setListenCheckBox.Location = new Point(94, 161);
             setListenCheckBox.Name = "setListenCheckBox";
             setListenCheckBox.Size = new Size(28, 27);
             setListenCheckBox.TabIndex = 5;
@@ -176,7 +190,8 @@
             // 
             label3.Anchor = AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(16, 196);
+            label3.Location = new Point(16, 211);
+            label3.Margin = new Padding(3, 3, 3, 0);
             label3.Name = "label3";
             label3.Size = new Size(106, 31);
             label3.TabIndex = 6;
@@ -186,7 +201,8 @@
             // listenIpTextBox
             // 
             listenIpTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            listenIpTextBox.Location = new Point(128, 194);
+            listenIpTextBox.Location = new Point(128, 209);
+            listenIpTextBox.Margin = new Padding(3, 0, 3, 3);
             listenIpTextBox.Name = "listenIpTextBox";
             listenIpTextBox.PlaceholderText = "IP";
             listenIpTextBox.Size = new Size(494, 38);
@@ -198,7 +214,7 @@
             setPrivateKeyCheckBox.Anchor = AnchorStyles.Right;
             setPrivateKeyCheckBox.AutoSize = true;
             setPrivateKeyCheckBox.ImageAlign = ContentAlignment.MiddleRight;
-            setPrivateKeyCheckBox.Location = new Point(94, 245);
+            setPrivateKeyCheckBox.Location = new Point(94, 261);
             setPrivateKeyCheckBox.Name = "setPrivateKeyCheckBox";
             setPrivateKeyCheckBox.Size = new Size(28, 27);
             setPrivateKeyCheckBox.TabIndex = 8;
@@ -209,7 +225,8 @@
             // 
             label4.Anchor = AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(56, 290);
+            label4.Location = new Point(56, 311);
+            label4.Margin = new Padding(3, 3, 3, 0);
             label4.Name = "label4";
             label4.Size = new Size(66, 31);
             label4.TabIndex = 9;
@@ -220,7 +237,8 @@
             // 
             privateKeyPathTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.SetColumnSpan(privateKeyPathTextBox, 2);
-            privateKeyPathTextBox.Location = new Point(128, 288);
+            privateKeyPathTextBox.Location = new Point(128, 309);
+            privateKeyPathTextBox.Margin = new Padding(3, 0, 3, 3);
             privateKeyPathTextBox.Name = "privateKeyPathTextBox";
             privateKeyPathTextBox.PlaceholderText = "X:\\path\\to\\key.pem";
             privateKeyPathTextBox.Size = new Size(520, 38);
@@ -231,7 +249,7 @@
             // 
             useConnectLabel.Anchor = AnchorStyles.Left;
             useConnectLabel.AutoSize = true;
-            useConnectLabel.Location = new Point(128, 8);
+            useConnectLabel.Location = new Point(128, 9);
             useConnectLabel.Name = "useConnectLabel";
             useConnectLabel.Size = new Size(282, 31);
             useConnectLabel.TabIndex = 11;
@@ -243,7 +261,7 @@
             // 
             setListenLabel.Anchor = AnchorStyles.Left;
             setListenLabel.AutoSize = true;
-            setListenLabel.Location = new Point(128, 149);
+            setListenLabel.Location = new Point(128, 159);
             setListenLabel.Name = "setListenLabel";
             setListenLabel.Size = new Size(220, 31);
             setListenLabel.TabIndex = 12;
@@ -255,7 +273,7 @@
             // 
             setPrivatekeyLabel.Anchor = AnchorStyles.Left;
             setPrivatekeyLabel.AutoSize = true;
-            setPrivatekeyLabel.Location = new Point(128, 243);
+            setPrivatekeyLabel.Location = new Point(128, 259);
             setPrivatekeyLabel.Name = "setPrivatekeyLabel";
             setPrivatekeyLabel.Size = new Size(241, 31);
             setPrivatekeyLabel.TabIndex = 13;
@@ -263,11 +281,78 @@
             setPrivatekeyLabel.TextAlign = ContentAlignment.MiddleLeft;
             setPrivatekeyLabel.Click += setPrivatekeyLabel_Click;
             // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label9.AutoSize = true;
+            label9.Location = new Point(628, 50);
+            label9.Name = "label9";
+            label9.Size = new Size(20, 50);
+            label9.TabIndex = 17;
+            label9.Text = ":";
+            label9.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // connectPortTextBox
+            // 
+            connectPortTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            connectPortTextBox.Location = new Point(654, 59);
+            connectPortTextBox.Margin = new Padding(3, 0, 3, 3);
+            connectPortTextBox.Name = "connectPortTextBox";
+            connectPortTextBox.PlaceholderText = "Port";
+            connectPortTextBox.Size = new Size(119, 38);
+            connectPortTextBox.TabIndex = 18;
+            connectPortTextBox.TextChanged += connectPortTextBox_TextChanged;
+            // 
+            // listenPortTextBox
+            // 
+            listenPortTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            listenPortTextBox.Location = new Point(654, 209);
+            listenPortTextBox.Margin = new Padding(3, 0, 3, 3);
+            listenPortTextBox.Name = "listenPortTextBox";
+            listenPortTextBox.PlaceholderText = "Port";
+            listenPortTextBox.Size = new Size(119, 38);
+            listenPortTextBox.TabIndex = 19;
+            listenPortTextBox.TextChanged += listenPortTextBox_TextChanged;
+            // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label10.AutoSize = true;
+            label10.Location = new Point(628, 200);
+            label10.Name = "label10";
+            label10.Size = new Size(20, 50);
+            label10.TabIndex = 20;
+            label10.Text = ":";
+            label10.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // browsePrivateKeyButton
+            // 
+            browsePrivateKeyButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            browsePrivateKeyButton.Location = new Point(654, 303);
+            browsePrivateKeyButton.Name = "browsePrivateKeyButton";
+            browsePrivateKeyButton.Size = new Size(119, 44);
+            browsePrivateKeyButton.TabIndex = 21;
+            browsePrivateKeyButton.Text = "Browse";
+            browsePrivateKeyButton.UseVisualStyleBackColor = true;
+            browsePrivateKeyButton.Click += browsePrivateKeyButton_Click;
+            // 
+            // applyAndRestartButton
+            // 
+            applyAndRestartButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.SetColumnSpan(applyAndRestartButton, 2);
+            applyAndRestartButton.Location = new Point(128, 503);
+            applyAndRestartButton.Name = "applyAndRestartButton";
+            applyAndRestartButton.Size = new Size(520, 44);
+            applyAndRestartButton.TabIndex = 16;
+            applyAndRestartButton.Text = "Apply && Restart";
+            applyAndRestartButton.UseVisualStyleBackColor = true;
+            applyAndRestartButton.Click += applyAndRestartButton_Click;
+            // 
             // disableMdnslabel
             // 
             disableMdnslabel.Anchor = AnchorStyles.Left;
             disableMdnslabel.AutoSize = true;
-            disableMdnslabel.Location = new Point(128, 337);
+            disableMdnslabel.Location = new Point(128, 459);
             disableMdnslabel.Name = "disableMdnslabel";
             disableMdnslabel.Size = new Size(178, 31);
             disableMdnslabel.TabIndex = 14;
@@ -280,84 +365,64 @@
             disableMdnsCheckBox.Anchor = AnchorStyles.Right;
             disableMdnsCheckBox.AutoSize = true;
             disableMdnsCheckBox.ImageAlign = ContentAlignment.MiddleRight;
-            disableMdnsCheckBox.Location = new Point(94, 339);
+            disableMdnsCheckBox.Location = new Point(94, 461);
             disableMdnsCheckBox.Name = "disableMdnsCheckBox";
             disableMdnsCheckBox.Size = new Size(28, 27);
             disableMdnsCheckBox.TabIndex = 15;
             disableMdnsCheckBox.UseVisualStyleBackColor = true;
             disableMdnsCheckBox.CheckedChanged += disableMdnsCheckBox_CheckedChanged;
             // 
-            // applyAndRestartButton
+            // setPskCheckBox
             // 
-            applyAndRestartButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel1.SetColumnSpan(applyAndRestartButton, 2);
-            applyAndRestartButton.Location = new Point(128, 379);
-            applyAndRestartButton.Name = "applyAndRestartButton";
-            applyAndRestartButton.Size = new Size(520, 44);
-            applyAndRestartButton.TabIndex = 16;
-            applyAndRestartButton.Text = "Apply && Restart";
-            applyAndRestartButton.UseVisualStyleBackColor = true;
-            applyAndRestartButton.Click += applyAndRestartButton_Click;
+            setPskCheckBox.Anchor = AnchorStyles.Right;
+            setPskCheckBox.AutoSize = true;
+            setPskCheckBox.ImageAlign = ContentAlignment.MiddleRight;
+            setPskCheckBox.Location = new Point(94, 361);
+            setPskCheckBox.Name = "setPskCheckBox";
+            setPskCheckBox.Size = new Size(28, 27);
+            setPskCheckBox.TabIndex = 22;
+            setPskCheckBox.UseVisualStyleBackColor = true;
+            setPskCheckBox.CheckedChanged += setPskCheckBox_CheckedChanged;
             // 
-            // label9
+            // pskTextBox
             // 
-            label9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label9.AutoSize = true;
-            label9.Location = new Point(628, 47);
-            label9.Name = "label9";
-            label9.Size = new Size(20, 47);
-            label9.TabIndex = 17;
-            label9.Text = ":";
-            label9.TextAlign = ContentAlignment.MiddleCenter;
+            pskTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.SetColumnSpan(pskTextBox, 3);
+            pskTextBox.Location = new Point(128, 409);
+            pskTextBox.Name = "pskTextBox";
+            pskTextBox.PlaceholderText = "******";
+            pskTextBox.Size = new Size(645, 38);
+            pskTextBox.TabIndex = 23;
+            pskTextBox.UseSystemPasswordChar = true;
+            pskTextBox.TextChanged += pskTextBox_TextChanged;
             // 
-            // connectPortTextBox
+            // setPskLabel
             // 
-            connectPortTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            connectPortTextBox.Location = new Point(654, 53);
-            connectPortTextBox.Name = "connectPortTextBox";
-            connectPortTextBox.PlaceholderText = "Port";
-            connectPortTextBox.Size = new Size(119, 38);
-            connectPortTextBox.TabIndex = 18;
-            connectPortTextBox.TextChanged += connectPortTextBox_TextChanged;
+            setPskLabel.Anchor = AnchorStyles.Left;
+            setPskLabel.AutoSize = true;
+            setPskLabel.Location = new Point(128, 359);
+            setPskLabel.Name = "setPskLabel";
+            setPskLabel.Size = new Size(236, 31);
+            setPskLabel.TabIndex = 24;
+            setPskLabel.Text = "Set pre-shared key:";
+            setPskLabel.Click += setPskLabel_Click;
             // 
-            // listenPortTextBox
+            // label6
             // 
-            listenPortTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            listenPortTextBox.Location = new Point(654, 194);
-            listenPortTextBox.Name = "listenPortTextBox";
-            listenPortTextBox.PlaceholderText = "Port";
-            listenPortTextBox.Size = new Size(119, 38);
-            listenPortTextBox.TabIndex = 19;
-            listenPortTextBox.TextChanged += listenPortTextBox_TextChanged;
-            // 
-            // label10
-            // 
-            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label10.AutoSize = true;
-            label10.Location = new Point(628, 188);
-            label10.Name = "label10";
-            label10.Size = new Size(20, 47);
-            label10.TabIndex = 20;
-            label10.Text = ":";
-            label10.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // browsePrivateKeyButton
-            // 
-            browsePrivateKeyButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            browsePrivateKeyButton.Location = new Point(654, 288);
-            browsePrivateKeyButton.Margin = new Padding(3, 6, 3, 2);
-            browsePrivateKeyButton.Name = "browsePrivateKeyButton";
-            browsePrivateKeyButton.Size = new Size(119, 39);
-            browsePrivateKeyButton.TabIndex = 21;
-            browsePrivateKeyButton.Text = "Browse";
-            browsePrivateKeyButton.UseVisualStyleBackColor = true;
-            browsePrivateKeyButton.Click += browsePrivateKeyButton_Click;
+            label6.Anchor = AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Location = new Point(66, 411);
+            label6.Margin = new Padding(3, 3, 3, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(56, 31);
+            label6.TabIndex = 25;
+            label6.Text = "Key";
             // 
             // SettingsWindow
             // 
             AutoScaleDimensions = new SizeF(14F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 576);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -395,5 +460,9 @@
         private TextBox listenPortTextBox;
         private Label label10;
         private Button browsePrivateKeyButton;
+        private CheckBox setPskCheckBox;
+        private TextBox pskTextBox;
+        private Label setPskLabel;
+        private Label label6;
     }
 }
