@@ -5,6 +5,7 @@
     <TargetFramework>net6.0-windows10.0.17763</TargetFramework>
     <RootNamespace>p2pClipboard_Windows</RootNamespace>
     <Nullable>enable</Nullable>
+	<Version>1.1.0</Version>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>icon.ico</ApplicationIcon>
